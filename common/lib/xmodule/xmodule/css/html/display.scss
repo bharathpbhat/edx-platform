@@ -145,3 +145,120 @@ th {
   background: #eee;
   font-weight: bold;
 }
+
+
+// image modal
+// --------------------
+
+// modal - image zoom, fill window
+.image-modal-link {
+  display: block;                                                                             
+  position: relative;
+  cursor: pointer;
+}
+
+.image-modal-link i,
+.image-modal .image-modal-content i {
+  position: absolute;
+  display: block;
+  padding: 5px;
+  cursor: pointer;
+  line-height: .9;
+  font-style: normal;
+  color: #2e2d29;
+  background: #fbfbf9;
+  border-radius: 10px;
+}
+.image-modal-link .icon-fullscreen {
+  display: none;
+  height: 41px;
+  width: 41px;
+  top: 5px;
+  left: 5px;
+}
+.image-modal-link:hover .icon-fullscreen {
+  display: block;
+}
+
+.image-modal {
+  display: none;
+  position: fixed;
+  cursor: pointer;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.image-modal .image-modal-content {
+  height: 95%;
+  width: 95%;
+  display: block;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  top: 2.5%;
+}
+.image-modal .image-modal-content .image-modal-imgWrapper {
+  position: relative;
+}
+.image-modal .image-modal-content .image-modal-imgWrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  margin: auto;
+  display: block;
+  opacity: 1;
+  cursor: default;
+}
+.image-modal.fit-to-screen .image-modal-content .image-modal-imgWrapper {
+  top: 0 !important;
+  left: 0 !important;
+  width: auto !important;
+  height: auto !important;
+}
+.image-modal.fit-to-screen .image-modal-content .image-modal-imgWrapper img {
+  top: 0 !important;
+  left: 0 !important;
+}
+.image-modal.zoomed .image-modal-content .image-modal-imgWrapper img {
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  cursor: move;
+}
+
+.image-modal .image-modal-content .icon-remove {
+  position: absolute;
+  height: 37px;
+  width: 37px;
+  top: 10px;
+  right: 10px;
+  line-height: .75;
+}
+
+.image-modal .image-modal-content .image-modal-zoom {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  height: 50px;
+  width: 110px;
+  padding: 5px 10px;
+  background: $white;
+  border-radius: 10px;
+  opacity: .9;
+}
+.image-modal .image-modal-content .image-modal-zoom i {
+  position: relative;
+  height: 50px;
+  padding: 0;
+  background: transparent;
+  line-height: 1;
+}
+.image-modal .image-modal-content .image-modal-zoom i.icon-zoom-in {
+  float: right;
+}
+.image-modal .image-modal-content .image-modal-zoom i.icon-zoom-out {
+  float: left;
+}

@@ -1,0 +1,20 @@
+<div class="image-modal-link">
+  <%= smallImage %>
+  <span class="image-modal-ui-icon fullscreen">
+    <i class="icon-fullscreen icon-large"></i> <%= gettext("Fullscreen") %>
+  </span>
+</div>
+<div class="image-modal">
+  <div class="image-modal-content">
+    <div class="image-modal-imgWrapper">
+      <%= largeImage %>
+    </div>
+    <span class="image-modal-ui-icon">
+      <i class="icon-remove icon-large"></i>
+    </span>
+    <div class="image-modal-zoom">
+      <span class="image-modal-ui-icon"><i class="icon-zoom-in icon-large"></i></span>
+      <span class="image-modal-ui-icon"><i class="icon-zoom-out icon-large"></i></span>
+    </div>
+  </div>
+</div>
