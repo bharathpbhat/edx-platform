@@ -57,9 +57,9 @@ function() {
         */
         var removeItem = function (name, instanceSpecific) {
             if (instanceSpecific) {
-                return delete window[namespace][id][name];
+                delete window[namespace][id][name];
             } else {
-                return delete window[namespace][name];
+                delete window[namespace][name];
             }
         };
 

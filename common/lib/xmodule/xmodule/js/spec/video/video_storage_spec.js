@@ -22,8 +22,8 @@ function (VideoStorage) {
                 spyOn(Number.prototype, 'toString').andReturn('0.abcdedg');
                 var storage = VideoStorage();
 
-                expect(window['VideoStorage']).toBeDefined();
-                expect(window['VideoStorage']['abcdedg']).toBeDefined();
+                expect(window.VideoStorage).toBeDefined();
+                expect(window.VideoStorage.abcdedg).toBeDefined();
             });
         });
 

@@ -22,7 +22,7 @@
 
             it('render the quality control', function () {
                 waitsFor(function () {
-                    return state.videoControl !== undefined;
+                    return state.videoControl;
                 }, 'videoControl is present', 5000);
 
                 runs(function () {

@@ -8,8 +8,8 @@
 
         afterEach(function () {
             $('source').remove();
-            window['VideoState'] = {};
-            window['VideoState']['id'] = {};
+            window.VideoState = {};
+            window.VideoState.id = {};
         });
 
         describe('constructor', function () {
