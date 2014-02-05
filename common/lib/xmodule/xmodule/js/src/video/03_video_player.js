@@ -649,9 +649,10 @@ function (HTML5Video, Resizer) {
     function updatePlayTime(time) {
         var videoPlayer = this.videoPlayer,
             duration = this.videoPlayer.duration(),
+            position = this.config.position,
             isNewSpeed = videoPlayer.seekToStartTimeOldSpeed !== this.speed,
             durationChange, tempStartTime, tempEndTime, youTubeId,
-            startTime, endTime, position;
+            startTime, endTime;
 
         if (
             duration > 0 &&
@@ -721,12 +722,11 @@ function (HTML5Video, Resizer) {
             // performed already such a seek.
             if (
                 durationChange === false &&
-                (videoPlayer.startTime > 0 || this.config.position !== 0) &&
+                (videoPlayer.startTime > 0 || position !== 0) &&
                 !(tempStartTime === 0 && tempEndTime === null)
             ) {
                 startTime = this.videoPlayer.startTime;
                 endTime = this.videoPlayer.endTime;
-                position = this.config.position;
 
                 if (startTime) {
                     if (startTime < position && endTime > position) {

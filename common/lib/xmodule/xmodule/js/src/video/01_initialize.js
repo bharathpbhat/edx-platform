@@ -671,20 +671,18 @@ function (VideoPlayer, VideoStorage) {
     }
 
     function saveState(async, data) {
-        var position = Time.formatFull(Math.round(this.videoPlayer.currentTime));
-
-        this.storage.setItem('position', position, true);
-
-        if (typeof data === 'undefined' || !$.isPlainObject(data)) {
+        if (!($.isPlainObject(data))) {
             data = {
-                position: position
+                position: Math.round(this.videoPlayer.currentTime)
             };
-        } else {
-            data.position = position;
+        }
 
-            if (data.speed) {
-                this.storage.setItem('speed', data.speed, true);
-            }
+        if (data.speed) {
+            this.storage.setItem('speed', data.speed, true);
+        }
+
+        if (data.position) {
+            this.storage.setItem('position', data.position, true);
         }
 
         $.ajax({
