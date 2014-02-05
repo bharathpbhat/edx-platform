@@ -671,7 +671,7 @@ function (VideoPlayer, VideoStorage) {
     }
 
     function saveState(async, data) {
-        var position = Math.round(this.videoPlayer.currentTime);
+        var position = Time.formatFull(Math.round(this.videoPlayer.currentTime));
 
         this.storage.setItem('position', position, true);
 

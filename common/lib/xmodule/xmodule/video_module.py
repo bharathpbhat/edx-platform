@@ -191,7 +191,11 @@ class VideoModule(VideoFields, XModule):
         if dispatch == 'save_user_state':
             for key in data:
                 if hasattr(self, key) and key in ACCEPTED_KEYS:
-                    setattr(self, key, json.loads(data[key]))
+                    if key == 'position':
+                        relative_position = RelativeTime.isotime_to_timedelta(data[key])
+                        setattr(self, key, relative_position)
+                    else:
+                        setattr(self, key, json.loads(data[key]))
                     if key == 'speed':
                         self.global_speed = self.speed
 
