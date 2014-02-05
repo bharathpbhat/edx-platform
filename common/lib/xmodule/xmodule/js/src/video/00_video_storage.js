@@ -8,8 +8,6 @@ function() {
 /**
  * Provides convenient way to store key value pairs.
  *
- * @TODO: Uses localStorage if available.
- *
  * @param {string} namespace Namespace that is used to store data.
  * @return {object} VideoStorage API.
  */
@@ -19,8 +17,8 @@ function() {
         *
         * @param {string} name Identifier of the data.
         * @param {any} value Data to store.
-        * @param {boolean} useSession Data with this flag will be removed on
-        *     window unload.
+        * @param {boolean} instanceSpecific Data with this flag will be added
+        *     to instance specific storage.
         */
         var setItem = function (name, value, instanceSpecific) {
             if (name) {
@@ -36,6 +34,8 @@ function() {
         * Returns the current value associated with the given name.
         *
         * @param {string} name Identifier of the data.
+        * @param {boolean} instanceSpecific Data with this flag will be added
+        *     to instance specific storage.
         * @return {any} The current value associated with the given name.
         *     If the given key does not exist in the list
         *     associated with the object then this method must return null.
@@ -52,6 +52,8 @@ function() {
         * Removes the current value associated with the given name.
         *
         * @param {string} name Identifier of the data.
+        * @param {boolean} instanceSpecific Data with this flag will be added
+        *     to instance specific storage.
         */
         var removeItem = function (name, instanceSpecific) {
             if (instanceSpecific) {
@@ -71,8 +73,7 @@ function() {
         };
 
         /**
-        * Initializes the module: creates a storage with proper namespace, binds
-        * `unload` event.
+        * Initializes the module: creates a storage with proper namespace.
         *
         * @private
         */

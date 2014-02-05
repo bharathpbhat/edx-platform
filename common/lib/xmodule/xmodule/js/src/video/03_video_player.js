@@ -380,7 +380,7 @@ function (HTML5Video, Resizer) {
 
         this.el.trigger('speedchange', arguments);
 
-        this.saveState(false, { speed: newSpeed });
+        this.saveState(true, { speed: newSpeed });
     }
 
     // Every 200 ms, if the video is playing, we call the function update, via

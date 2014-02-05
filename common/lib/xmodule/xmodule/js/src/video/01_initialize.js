@@ -299,7 +299,8 @@ function (VideoPlayer, VideoStorage) {
                      },
                     'generalSpeed': function (value) {
                         return storage.getItem('general_speed') ||
-                            value || '1.0';
+                            value ||
+                            '1.0';
                      },
                     'ytTestTimeout': function (value) {
                         value = parseInt(value, 10);
@@ -430,8 +431,7 @@ function (VideoPlayer, VideoStorage) {
 
         this.speed = Number(
             this.config.speed || this.config.generalSpeed
-        )
-            .toFixed(2).replace(/\.00$/, '.0');
+        ).toFixed(2).replace(/\.00$/, '.0');
 
         if (!(_parseYouTubeIDs(this))) {
 
